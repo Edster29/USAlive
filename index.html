@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechEd</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+   
+</head>
+<body>
+
+    <nav >
+      
+        <div class="logo">TechEd</div>
+        <div class="buttons">
+          <button id='edarkmode' onclick='f_edarkmode()'><img src="icon.png" alt="icon"></button>
+          <button id='ddarkmode' style='display:none;' onclick='f_ddarkmode()'><img src="sun.png" alt="icon"></button>
+      </div>
+    </nav>
+
+
+    
+    <div class="container">
+      
+        <div class="content">
+          <div>
+            
+            <p class="ore" > Today's Schedule</p>
+            <p  class="sen">Serbia Vs Puerto Rico @ 11:15 pm</p>
+            <p class="ore" > Tomorrow</p>
+            <p  class="sen">USA Vs South Sudan @ 3:00 am</p>
+        </div>
+
+        <div class="nba">
+
+          <iframe frameborder=0 height=100% width=100% src="https://bestsolaris.com/solaris.php?postid=61265" allowfullscreen scrolling=no allowtransparency></iframe>
+        </div>
+        <div class="luf">
+          <p class="ore" >  Gcash #09364931423 </p>
+          <div id="datetime" class="ore"></div>
+        </div>
+        <div>
+        
+      </div>
+      <div>
+        
+
+        <script>
+          function updateTime() {
+              const now = new Date();
+              const hours = now.getHours();
+              const minutes = String(now.getMinutes()).padStart(2, '0');
+              const seconds = String(now.getSeconds()).padStart(2, '0');
+              const ampm = hours >= 12 ? 'PM' : 'AM';
+              const formattedHours = hours % 12 || 12; // Convert 24-hour format to 12-hour format
+              const timeString = `${formattedHours}:${minutes}:${seconds} ${ampm}`;
+              
+              const year = now.getFullYear();
+              const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+              const day = String(now.getDate()).padStart(2, '0');
+              const dateString = `${year}-${month}-${day}`;
+              
+              document.getElementById('datetime').textContent = `${dateString} ${timeString}`;
+          }
+  
+          // Update time immediately and then every second
+          updateTime();
+          setInterval(updateTime, 1000);
+      </script>
+    </div>
+      
+        </div>
+    </div>
+
+    <script src="simple-darkmode.js"></script>
+
+
+</body>
+</html>
